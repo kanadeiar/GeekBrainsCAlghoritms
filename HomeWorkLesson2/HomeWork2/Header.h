@@ -1,10 +1,13 @@
 #pragma once
 #include <stdio.h>
 
-void Task1Convert();
-void Task2Pow();
-void Task3Calculator();
+void task1_convert();
+void task2_pow();
+void task3_calculator();
 
+/**
+ * \brief Вывод меню в консоль
+ */
 inline void PrintMenu()
 {
 	printf("\n***********************************************************************************\n");
@@ -16,15 +19,19 @@ inline void PrintMenu()
 	printf("Ваш выбор:> ");
 }
 
+/**
+ * \brief Вызов выбранной пользователем задачи
+ * \param select Выбранная задача
+ */
 inline void actionSelect(int select)
 {
 	switch (select)
 	{
-	case 1: Task1Convert();
+	case 1: task1_convert();
 		break;
-	case 2: Task2Pow();
+	case 2: task2_pow();
 		break;
-	case 3: Task3Calculator();
+	case 3: task3_calculator();
 		break;
 	case 0: break;
 	default:
@@ -32,6 +39,9 @@ inline void actionSelect(int select)
 	}
 }
 
+/**
+ * \brief Заголовок консольного приложения
+ */
 inline void PrintHeader()
 {
 	printf("**************************************************************************************\n");
@@ -40,6 +50,9 @@ inline void PrintHeader()
 	printf("**************************************************************************************\n\n");
 }
 
+/**
+ * \brief Подвал консольного приложения
+ */
 inline void PrintFooter()
 {
 	printf("Для выхода из программы нажмите кнопку ...");
