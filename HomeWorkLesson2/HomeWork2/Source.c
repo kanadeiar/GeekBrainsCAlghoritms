@@ -67,7 +67,18 @@ int myPow(int num, int pw)
 
 int myRecPow(int num, int pw)
 {
-	
+	if (pw == 0)
+		return 1;
+	return myRecPow(num, pw - 1) * num;
+}
+
+int myQuiRecPow(int num, int pw)
+{
+	if (pw == 0)
+		return 1;
+	if (pw % 2)
+		return myQuiRecPow(num, pw - 1) * num;
+	return myQuiRecPow(num * num, pw / 2); 
 }
 
 void task2_pow()
@@ -81,10 +92,12 @@ void task2_pow()
 	int pw;
 	scanf_s(" %d", &pw);
 	getchar();
-	printf("Значение возведенное в степень без рекурсии: %d\n", myPow(num, pw));
-	
-
-	
+	int res =  myPow(num, pw);
+	printf("Значение возведенное в степень без рекурсии: %d\n", res);
+	res = myRecPow(num, pw);
+	printf("Значение возведенное в степень с помощью рекурсии: %d\n", res);
+	res = myQuiRecPow(num, pw);
+	printf("Значение возведенное в степень с помощью рекурсии с четностью степени: %d\n", res);
 	getchar();
 }
 
