@@ -13,6 +13,8 @@ int main(int argc, char * args[])
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
+	task3_calculator();
+
 	PrintHeader();
 	int userSelect = 0;
 	do
@@ -101,10 +103,66 @@ void task2_pow()
 	getchar();
 }
 
+int getNumAct(int num, int comm[20])
+{
+	int i = 0;
+	while (i < 20 && comm[i] != 0)
+	{
+		if (comm[i] == 1)
+			num++;
+		else if (comm[i] == 2)
+			num *= 2;
+		i++;
+	}
+	return num;
+}
+
+void Print(int comm[20])
+{
+	for (int i = 0; i < 20; i++)
+		if (comm[i] != 0)
+			printf("%d ", comm[i]);
+	printf("\n");
+}
+
+int Gen(int comm[20], int n, int count)
+{
+	int i = 0;
+	while (comm[i] == n && i < count)
+	{
+		i++;
+	}
+	if (i >= count) return 0;
+	if (comm[i] >= n)
+		i++;
+	comm[i]++;
+	if (i == 0)
+		return 1;
+	for (int j = 0; j < i; j++)
+		comm[j] = 1;
+	return 1;
+}
+
 void task3_calculator()
 {
-	printf("3.* Исполнитель Калькулятор преобразует целое число, записанное на экране. У исполнителя две команды, каждой команде присвоен номер:\nПрибавь 1\nУмножь на 2\nПервая команда увеличивает число на экране на 1, вторая увеличивает это число в 2 раза. Сколько существует программ, которые число 3 преобразуют в число 20?\nа) с использованием массива;\nб) с использованием рекурсии.");
+	printf("3.* Исполнитель Калькулятор преобразует целое число, записанное на экране. У исполнителя две команды, каждой команде присвоен номер:\n1 - Прибавь 1\n2 - Умножь на 2\nПервая команда увеличивает число на экране на 1, вторая увеличивает это число в 2 раза. Сколько существует программ, которые число 3 преобразуют в число 20?\nа) с использованием массива;\nб) с использованием рекурсии.\n");
+	int from = 3;
+	int to = 20;
 
+	int comm[20] = {0};
+	int count = 0;
+	while (Gen(comm, 2, 20))
+	{
+		int num = getNumAct(from, comm);
+		if (num == 20)
+		{
+			count++;
+			Print(comm);
+		}
+	}
+	printf("Всего программ перевода числа 3 в 20 без использования рекурсии: %d\n", count);
+	
+	
 	getchar();
 }
 
