@@ -13,7 +13,6 @@ int main(int argc, char * args[])
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	task3_calculator();
 
 	PrintHeader();
 	int userSelect = 0;
@@ -54,7 +53,12 @@ void task1_convert()
 	getchar();
 }
 
-
+/**
+ * \brief возведение в степень числа
+ * \param num число
+ * \param pw степень
+ * \return результат
+ */
 int myPow(int num, int pw)
 {
 	int i = 2;
@@ -67,6 +71,12 @@ int myPow(int num, int pw)
 	return rt;
 }
 
+/**
+ * \brief –екурсивное возведение в степень
+ * \param num число
+ * \param pw степень
+ * \return результат
+ */
 int myRecPow(int num, int pw)
 {
 	if (pw == 0)
@@ -74,6 +84,12 @@ int myRecPow(int num, int pw)
 	return myRecPow(num, pw - 1) * num;
 }
 
+/**
+ * \brief –екурсивное возведение в степень с использованием свойства четности степени
+ * \param num число
+ * \param pw степень
+ * \return результат
+ */
 int myQuiRecPow(int num, int pw)
 {
 	if (pw == 0)
@@ -103,6 +119,12 @@ void task2_pow()
 	getchar();
 }
 
+/**
+ * \brief исполнение команд по изменению числа
+ * \param num число которое измен€ть
+ * \param comm команды 1: "+1" 2: "*2"
+ * \return измененное число
+ */
 int getNumAct(int num, int comm[20])
 {
 	int i = 0;
@@ -117,6 +139,10 @@ int getNumAct(int num, int comm[20])
 	return num;
 }
 
+/**
+ * \brief печать в консоли всего массива команд
+ * \param comm 
+ */
 void Print(int comm[20])
 {
 	for (int i = 0; i < 20; i++)
@@ -125,6 +151,13 @@ void Print(int comm[20])
 	printf("\n");
 }
 
+/**
+ * \brief изменение списка команд на основе предищущего, генераци€ следующей последовательности
+ * \param comm измен€емый список команд
+ * \param n диапазон изменений команд
+ * \param count длинна списка команд
+ * \return удачное изменение команд
+ */
 int Gen(int comm[20], int n, int count)
 {
 	int i = 0;
@@ -143,12 +176,35 @@ int Gen(int comm[20], int n, int count)
 	return 1;
 }
 
+/**
+ * \brief –екурсивный подсчет количества путей достижени€ от одного числа до второго использу€ две команды - плюс один и умножить на два
+ * \param from от
+ * \param to до
+ * \param comm передача уже пройденных команд, по умолчанию - ноль
+ * \return 
+ */
+int countRecursive(int from, int to, long long comm)
+{
+	if (from == to)
+	{
+		printf("%lld\n", comm);
+		return 1;
+	}
+	if (from > to)
+		return 0;
+	int count = 0;
+	long long cm = comm * 10 + 1;
+	count += countRecursive(from + 1, to, cm);
+	cm = comm * 10 + 2;
+	count += countRecursive(from * 2, to, cm);
+	return count;
+}
+
 void task3_calculator()
 {
 	printf("3.* »сполнитель  алькул€тор преобразует целое число, записанное на экране. ” исполнител€ две команды, каждой команде присвоен номер:\n1 - ѕрибавь 1\n2 - ”множь на 2\nѕерва€ команда увеличивает число на экране на 1, втора€ увеличивает это число в 2 раза. —колько существует программ, которые число 3 преобразуют в число 20?\nа) с использованием массива;\nб) с использованием рекурсии.\n");
 	int from = 3;
 	int to = 20;
-
 	int comm[20] = {0};
 	int count = 0;
 	while (Gen(comm, 2, 20))
@@ -161,8 +217,9 @@ void task3_calculator()
 		}
 	}
 	printf("¬сего программ перевода числа 3 в 20 без использовани€ рекурсии: %d\n", count);
-	
-	
+
+	int cnt = countRecursive(from, to, 0);
+	printf("¬сего программ перевода числа 3 в 20 с помощью рекурсии: %d", cnt);
 	getchar();
 }
 
