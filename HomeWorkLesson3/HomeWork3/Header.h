@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 void task1_bubble();
-
+void task2_shaker();
 
 /**
  * \brief Вывод меню в консоль
@@ -12,6 +12,7 @@ inline void PrintMenu()
 	printf("\n***********************************************************************************\n");
 	printf("Введите цифру дальнейшего действия (int):\n");
 	printf("[1] - Задача 1. Попробовать оптимизировать пузырьковую сортировку.\n");
+	printf("[2] - Задача 2. Реализовать шейкерную сортировку.\n");
 	printf("[0] - Выход\n");
 	printf("Ваш выбор:> ");
 }
@@ -25,6 +26,8 @@ inline void actionSelect(int select)
 	switch (select)
 	{
 	case 1: task1_bubble();
+		break;
+	case 2: task2_shaker();
 		break;
 	case 0: break;
 	default:
