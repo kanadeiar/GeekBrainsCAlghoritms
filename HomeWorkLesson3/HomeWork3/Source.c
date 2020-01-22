@@ -179,3 +179,59 @@ void task2_shaker()
 	
 	getchar();
 }
+
+/**
+ * \brief Бинарный поиск
+ * \param arr массив
+ * \param len длинна его
+ * \param value значение которое нужно найти
+ * \return позиция его
+ */
+int findBinary(int arr[], int len, int value)
+{
+	int mid = 0;
+	int f = 0, l = len;
+	while (f <= l)
+	{
+		mid = (f + l) / 2;
+		if (value < arr[mid])
+			l = mid - 1;
+		else if (value > arr[mid])
+			f = mid + 1;
+		else
+			return mid;
+	}
+	return -1;
+}
+
+void task3_binary_search()
+{
+	printf("3. Реализовать бинарный алгоритм поиска в виде функции, которой передается отсортированный массив. Функция возвращает индекс найденного элемента или -1, если элемент не найден.\n");
+	int arr[100];
+	for (int i=0; i<_countof(arr); i++)
+		arr[i] = 10 + i;
+	puts("\nМассив:");
+	for (int i=0; i<_countof(arr); i++)
+		printf("%2d ", arr[i]);
+	printf("\n");
+	puts("Какой элемент найти? Введите его значение:");
+	int num;
+	scanf(" %d", &num);
+	getchar();
+
+	int indx = findBinary(arr, 100, num);
+	
+	if (indx != -1)
+		printf("Элемент найден. arr[%d]=%d\n", indx, arr[indx]);
+	else
+		printf("Элемент не найден.\n");
+	
+	getchar();
+}
+
+void task4_count()
+{
+	printf("4. Подсчитать количество операций для каждой из сортировоки сравнить его с асимптотической сложностью алгоритма.\n");
+	
+	getchar();
+}
