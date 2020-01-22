@@ -229,9 +229,112 @@ void task3_binary_search()
 	getchar();
 }
 
+void sortSelect(int arr[], int * count)
+{
+	*count = 0;
+	int * last = arr + SIZE_ARR - 1;
+	int * pI = arr;
+	while (pI <= last - 1)
+	{
+		int * pMin = pI;
+		*count += 1;
+		int * pJ = pI + 1;
+		while (pJ <= last)
+		{
+			*count += 1;
+			if (*pJ < *pMin)
+				pMin = pJ;
+			pJ++;
+		}
+		*count += 1;
+		int t = *pI;
+		*pI = *pMin;
+		*pMin = t;
+		pI++;
+	}
+}
+
+void sortQ(int arr[], int first, int last, int * count)
+{
+	*count = 0;
+	int f = first, l = last;
+	*count += 1;
+	int middle = arr[f + rand() % (l - f)];
+	while (f < l)
+	{
+		while (arr[f] < middle)
+		{
+			*count += 1;
+			f++;
+		}
+		while (arr[l] > middle)
+		{
+			*count += 1;
+			l--;
+		}
+		if (f < l)
+		{
+			*count += 1;
+			int t = arr[f];
+			arr[f] = arr[l];
+			arr[l] = t;
+		}
+		if (f <= l)
+		{
+			f++;
+			l--;
+		}
+	}
+	if (first < l) sortQ(arr, first, l, &count);
+	if (f < last) sortQ(arr, f, last, &count);
+}
+
 void task4_count()
 {
 	printf("4. Подсчитать количество операций для каждой из сортировоки сравнить его с асимптотической сложностью алгоритма.\n");
-	
+	srand(time(NULL));
+	int arr[SIZE_ARR];
+	///////////////////////////////////////////////
+	puts("************* Сортировка пузыриком ***************");
+	for (int i=0; i<SIZE_ARR; i++)
+		arr[i] = rand() % 20;
+	int count;
+	sortBubbleModified(arr, &count);
+	puts("\nМассив после сортировки пузыриком:");
+	for (int i=0; i<SIZE_ARR; i++)
+		printf("%2d ", arr[i]);
+	printf("\n");
+	printf("Количество операций: %d\nСложность алгоритма - O(N^2)\n", count);
+	//////////////////////////////////////////////
+	puts("************* Сортировка шейкерная ***************");
+	for (int i=0; i<SIZE_ARR; i++)
+		arr[i] = rand() % 20;
+	sortShaker(arr, &count);
+	puts("\nМассив после сортировки шейкерной:");
+	for (int i=0; i<SIZE_ARR; i++)
+		printf("%2d ", arr[i]);
+	printf("\n");
+	printf("Количество операций: %d\nСложность алгоритма - O(N^2)\n", count);
+	/////////////////////////////////////////////////
+	puts("************* Сортировка выбором ***************");
+	for (int i=0; i<SIZE_ARR; i++)
+		arr[i] = rand() % 20;
+	sortSelect(arr, &count);
+	puts("\nМассив после сортировки выбором:");
+	for (int i=0; i<SIZE_ARR; i++)
+		printf("%2d ", arr[i]);
+	printf("\n");
+	printf("Количество операций: %d\nСложность алгоритма - O(N^2)\n", count);
+	/////////////////////////////////////////////////
+	puts("************* Сортировка быстрая ***************");
+	for (int i=0; i<SIZE_ARR; i++)
+		arr[i] = rand() % 20;
+	sortQ(arr, 0, SIZE_ARR - 1, &count);
+	puts("\nМассив после сортировки выбором:");
+	for (int i=0; i<SIZE_ARR; i++)
+		printf("%2d ", arr[i]);
+	printf("\n");
+	printf("Количество операций: %d\nСложность алгоритма - O(N log N)\n", count);
+
 	getchar();
 }
