@@ -344,21 +344,24 @@ void task4_count()
 
 void sortInsertNBinary(int arr[], int len, int * count)
 {
-	*count = 0;
-	int key = 0;
-	for (int i = 0; i < len - 1; i++)
+	for (int i = 1; i < len; i++)
 	{
-		key = i + 1;
-		int temp = arr[key];		
-		for (int j = i+1; j > 0; j--)
+		int key = arr[i];
+		int f = 0;
+		int l = i;
+		while (f < l)
 		{
-			if (temp < arr[j - 1])
-			{
-				arr[j] = arr[j - 1];
-				key = j - 1;
-			}
+			int med = f + (l - f) / 2;
+			if (key < arr[med])
+				l = med;
+			else
+				f = med + 1;
 		}
-		arr[key] = temp;
+		for (int j = i; j > l; j--)
+		{
+			arr[j] = arr[j-1];
+		}
+		arr[l] = key;
 		for (auto i=0; i<10; i++)
 			printf("%2d ", arr[i]);
 		printf("\n");
@@ -374,6 +377,7 @@ void task5_sort_insert()
 	puts("************* Сортировка вставками с бинарным поиском ***************");
 	for (auto i=0; i<10; i++)
 		arr[i] = rand() % 20;
+
 	int count;
 	for (auto i=0; i<10; i++)
 		printf("%2d ", arr[i]);
