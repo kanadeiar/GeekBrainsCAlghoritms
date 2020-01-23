@@ -247,9 +247,13 @@ void sortSelect(int arr[], int * count)
 			pJ++;
 		}
 		*count += 1;
-		int t = *pI;
-		*pI = *pMin;
-		*pMin = t;
+		if (pMin != pI)
+		{
+			*count += 1;
+			int temp = *pI;
+			*pI = *pMin;
+			*pMin = temp;
+		}
 		pI++;
 	}
 }
@@ -330,11 +334,92 @@ void task4_count()
 	for (int i=0; i<SIZE_ARR; i++)
 		arr[i] = rand() % 20;
 	sortQ(arr, 0, SIZE_ARR - 1, &count);
-	puts("\nМассив после сортировки выбором:");
+	puts("\nМассив после быстрой сортировки:");
 	for (int i=0; i<SIZE_ARR; i++)
 		printf("%2d ", arr[i]);
 	printf("\n");
 	printf("Количество операций: %d\nСложность алгоритма - O(N log N)\n", count);
+	getchar();
+}
+
+void sortInsertNBinary(int arr[], int len, int * count)
+{
+	*count = 0;
+	int key = 0;
+	for (int i = 0; i < len - 1; i++)
+	{
+		key = i + 1;
+		int temp = arr[key];
+		
+		int f = 0;
+		int l = i;
+		while (f <= l)
+		{
+			key = (f + l) / 2;
+			if (temp < arr[key])
+				l = key - 1;
+			else if (temp > arr[key])
+				f = key + 1;
+			else
+				break;
+		}
+		for (int j = i+1; j > 0; j--)
+		{
+			arr[j] = arr[j - 1];
+		}
+	//int mid = 0;
+	//int f = 0, l = len;
+	//while (f <= l)
+	//{
+	//	mid = (f + l) / 2;
+	//	if (value < arr[mid])
+	//		l = mid - 1;
+	//	else if (value > arr[mid])
+	//		f = mid + 1;
+	//	else
+	//		return mid;
+	//}
+	//return -1;
+
+
+		//for (int j = i+1; j > 0; j--)
+		//{
+		//	if (temp < arr[j-1])
+		//	{
+		//		arr[j] = arr[j - 1];
+		//		key = j-1;
+		//	}
+		//}
+
+		arr[key] = temp;
+
+		for (auto i=0; i<10; i++)
+			printf("%2d ", arr[i]);
+		printf("\n");
+	}
+}
+
+void task5_sort_insert()
+{
+	printf("5. Реализовать сортировку вставками, используя бинарный поиск.\n");
+	srand(time(NULL));
+	int arr[10];
+	/////////////////////////////////////////////////
+	puts("************* Сортировка вставками с бинарным поиском ***************");
+	for (auto i=0; i<10; i++)
+		arr[i] = rand() % 20;
+	int count;
+	for (auto i=0; i<10; i++)
+		printf("%2d ", arr[i]);
+	printf("\n");
+
+	sortInsertNBinary(arr, 10, &count);
+	
+	puts("\nМассив после сортировки вставками с бинарным поиском:");
+	for (auto i=0; i<10; i++)
+		printf("%2d ", arr[i]);
+	printf("\n");
+	printf("Количество операций: %d\nСложность алгоритма - O(N^2)\n", count);
 
 	getchar();
 }
