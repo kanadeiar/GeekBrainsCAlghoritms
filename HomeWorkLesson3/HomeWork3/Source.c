@@ -349,50 +349,16 @@ void sortInsertNBinary(int arr[], int len, int * count)
 	for (int i = 0; i < len - 1; i++)
 	{
 		key = i + 1;
-		int temp = arr[key];
-		
-		int f = 0;
-		int l = i;
-		while (f <= l)
-		{
-			key = (f + l) / 2;
-			if (temp < arr[key])
-				l = key - 1;
-			else if (temp > arr[key])
-				f = key + 1;
-			else
-				break;
-		}
+		int temp = arr[key];		
 		for (int j = i+1; j > 0; j--)
 		{
-			arr[j] = arr[j - 1];
+			if (temp < arr[j - 1])
+			{
+				arr[j] = arr[j - 1];
+				key = j - 1;
+			}
 		}
-	//int mid = 0;
-	//int f = 0, l = len;
-	//while (f <= l)
-	//{
-	//	mid = (f + l) / 2;
-	//	if (value < arr[mid])
-	//		l = mid - 1;
-	//	else if (value > arr[mid])
-	//		f = mid + 1;
-	//	else
-	//		return mid;
-	//}
-	//return -1;
-
-
-		//for (int j = i+1; j > 0; j--)
-		//{
-		//	if (temp < arr[j-1])
-		//	{
-		//		arr[j] = arr[j - 1];
-		//		key = j-1;
-		//	}
-		//}
-
 		arr[key] = temp;
-
 		for (auto i=0; i<10; i++)
 			printf("%2d ", arr[i]);
 		printf("\n");
