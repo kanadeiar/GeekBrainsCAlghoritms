@@ -4,6 +4,7 @@
 
 void task1_counter();
 void task2_lcs();
+void task3_horse();
 
 /**
  * \brief Русификация
@@ -23,6 +24,7 @@ inline void PrintMenu()
 	printf("Введите цифру дальнейшего действия (int):\n");
 	printf("[1] - Задача 1. Количество маршрутов с препятствиями. Реализовать чтение массива с препятствием и нахождение количество маршрутов.\n");
 	printf("[2] - Задача 2. Решить задачу о нахождении длины максимальной последовательности с помощью матрицы.\n");
+	printf("[3] - Задача 3. Обход конем шахматной доски.\n");
 	printf("[0] - Выход\n");
 	printf("Ваш выбор:> ");
 }
@@ -38,6 +40,8 @@ inline void actionSelect(int select)
 	case 1: task1_counter();
 		break;
 	case 2: task2_lcs();
+		break;
+	case 3: task3_horse();
 		break;
 	case 0: break;
 	default:
