@@ -2,7 +2,9 @@
 #include <windows.h>
 #include <stdio.h>
 
-void task1_binary();
+void Task1Binary();
+void Task2GoodSequence();
+void Task3CopyList();
 
 /**
  * \brief Русификация
@@ -21,6 +23,8 @@ inline void PrintMenu()
 	printf("\n**************************************************************************************\n");
 	printf("Введите цифру дальнейшего действия (int):\n");
 	printf("[1] - Задача 1. Реализовать перевод из десятичной в двоичную систему счисления с использованием стека.\n");
+	printf("[2] - Задача 2. Написать программу, которая определяет, является ли введенная скобочнаяпоследовательность правильной.\n");
+	printf("[3] - Задача 3. Создать функцию, копирующую односвязный список.\n");
 	printf("[0] - Выход\n");
 	printf("Ваш выбор:> ");
 }
@@ -33,7 +37,11 @@ inline void actionSelect(int select)
 {
 	switch (select)
 	{
-	case 1: task1_binary();
+	case 1: Task1Binary();
+		break;
+	case 2: Task2GoodSequence();
+		break;
+	case 3: Task3CopyList();
 		break;
 	case 0: break;
 	default:
@@ -60,3 +68,4 @@ inline void PrintFooter()
 	printf("Для выхода из программы нажмите любую кнопку ...");
 	getchar();
 }
+
