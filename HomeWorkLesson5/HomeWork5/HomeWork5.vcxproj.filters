@@ -26,10 +26,13 @@
     <ClInclude Include="Task1.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Task2.h">
+    <ClInclude Include="Task4.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Task3.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Task2.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

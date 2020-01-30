@@ -3,8 +3,9 @@
 #include <stdio.h>
 
 void Task1Binary();
-void Task2GoodSequence();
-void Task3CopyList();
+void Task2Stack();
+void Task3GoodSequence();
+void Task4CopyList();
 
 /**
  * \brief Русификация
@@ -23,8 +24,9 @@ inline void PrintMenu()
 	printf("\n**************************************************************************************\n");
 	printf("Введите цифру дальнейшего действия (int):\n");
 	printf("[1] - Задача 1. Реализовать перевод из десятичной в двоичную систему счисления с использованием стека.\n");
-	printf("[2] - Задача 2. Написать программу, которая определяет, является ли введенная скобочнаяпоследовательность правильной.\n");
-	printf("[3] - Задача 3. Создать функцию, копирующую односвязный список.\n");
+	printf("[2] - Задача 2. Добавить в программу \"Реализация стека на основе односвязного списка\" проверку на выделение памяти.\n");
+	printf("[3] - Задача 3. Написать программу, которая определяет, является ли введенная скобочнаяпоследовательность правильной.\n");
+	printf("[4] - Задача 4. Создать функцию, копирующую односвязный список.\n");
 	printf("[0] - Выход\n");
 	printf("Ваш выбор:> ");
 }
@@ -39,9 +41,11 @@ inline void actionSelect(int select)
 	{
 	case 1: Task1Binary();
 		break;
-	case 2: Task2GoodSequence();
+	case 2: Task2Stack();
 		break;
-	case 3: Task3CopyList();
+	case 3: Task3GoodSequence();
+		break;
+	case 4: Task4CopyList();
 		break;
 	case 0: break;
 	default:
