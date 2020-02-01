@@ -2,6 +2,10 @@
 #include <windows.h>
 #include <stdio.h>
 
+#include "Task1Hash.h"
+
+void Task1Hash();
+
 /**
  * \brief Русификация
  */
@@ -18,7 +22,7 @@ inline void PrintMenu()
 {
 	puts("\n**************************************************************************************");
 	puts("Введите цифру дальнейшего действия (int):");
-	puts("[1] - Задача 1. ");
+	puts("[1] - Задача 1. Реализовать простейшую хеш-функцию. На вход функции подается строка, на выходе сумма кодов символов.");
 	puts("[0] - Выход");
 	printf("Ваш выбор:> ");
 }
@@ -31,7 +35,7 @@ inline void actionSelect(int select)
 {
 	switch (select)
 	{
-	case 1: 
+	case 1: Task1Hash();
 		break;
 	case 0: break;
 	default:
