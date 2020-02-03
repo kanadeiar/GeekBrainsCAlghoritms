@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * \brief Получение хеш-кода вводимого значения
+ * \param str вводимая строка
+ * \return хеш-код
+ */
 int getHashFromStr(char str[])
 {
 	char * p_str = str;

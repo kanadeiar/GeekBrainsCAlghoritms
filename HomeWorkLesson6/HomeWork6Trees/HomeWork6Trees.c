@@ -43,3 +43,47 @@ void Task1Hash()
 	/////////////////////////////////////////////////////////////
 	getchar();
 }
+
+void Task2Tree()
+{
+	puts("\n**************************************************************************************");
+	puts("2. Переписать программу, реализующую двоичное дерево поиска.");
+	/////////////////////////////////////////////////////////////
+	Node *Tree = NULL;
+	FILE *file = fopen("digitals.txt", "r");
+	if (file == NULL)
+	{
+		puts("Невозможно открыть файл для чтения");
+		getchar();
+		exit(1);
+	}
+	int count;
+	fscanf(file, "%d", &count);
+	int i;
+	for (i = 0; i<count; i++)
+	{
+		int value;
+		fscanf(file, "%d", &value);
+		InsertNode(&Tree, value);
+	}
+	fclose(file);
+	PrintTree(Tree);
+	printf("\nОбход в прямом порядке: ");
+	PreOrderTravers(Tree);
+	printf("\nОбход в симметричном порядке: ");
+	SimmOrderTravers(Tree);
+	printf("\nОбход в обратном порядке: ");
+	AfterOrderTravers(Tree);
+	printf("\nС каким значением найти элемент:> ");
+	int value;
+	scanf_s(" %d", &value);
+	getchar();
+	Node * found = FindInTree(Tree, value);
+	if (found)
+		printf("Найден элемент со значением: %d\n", found->value);
+	else
+		printf("Элемент не найден!\n");
+	printf("\n");
+	/////////////////////////////////////////////////////////////
+	getchar();
+}

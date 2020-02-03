@@ -3,8 +3,10 @@
 #include <stdio.h>
 
 #include "Task1Hash.h"
+#include "Task2Tree.h"
 
 void Task1Hash();
+void Task2Tree();
 
 /**
  * \brief Русификация
@@ -23,6 +25,7 @@ inline void PrintMenu()
 	puts("\n**************************************************************************************");
 	puts("Введите цифру дальнейшего действия (int):");
 	puts("[1] - Задача 1. Реализовать простейшую хеш-функцию. На вход функции подается строка, на выходе сумма кодов символов.");
+	puts("[2] - Задача 2. Переписать программу, реализующую двоичное дерево поиска.");
 	puts("[0] - Выход");
 	printf("Ваш выбор:> ");
 }
@@ -36,6 +39,8 @@ inline void actionSelect(int select)
 	switch (select)
 	{
 	case 1: Task1Hash();
+		break;
+	case 2: Task2Tree();
 		break;
 	case 0: break;
 	default:
