@@ -144,6 +144,7 @@
     <ClInclude Include="HomeWork7Header.h" />
     <ClInclude Include="Task1Matrix.h" />
     <ClInclude Include="Task2Dfs.h" />
+    <ClInclude Include="Task3Bfs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,7 @@
 #pragma once
 #include <stdio.h>
 
-#define N 6
+#define N 5
 int Visited[N];
 
 /**
@@ -16,7 +16,7 @@ int Graph[N][N] =
 {1, 0, 1, 1, 0},
 };
 /**
- * \brief Поиск в глубину
+ * \brief Обход в глубину
  * \param st вершина
  */
 void DFS(int st)
@@ -28,7 +28,7 @@ void DFS(int st)
 			DFS(i);
 }
 /**
- * \brief Запуск поиска в глубину
+ * \brief Запуск обхода в глубину
  */
 void RunDFS()
 {
