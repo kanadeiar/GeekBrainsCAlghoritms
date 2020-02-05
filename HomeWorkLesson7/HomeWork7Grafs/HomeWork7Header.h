@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 void Task1Matrix();
+void Task2Dfs();
 
 /**
  * \brief Русификация
@@ -21,6 +22,7 @@ inline void PrintMenu()
 	puts("\n**************************************************************************************");
 	puts("Введите цифру дальнейшего действия (int):");
 	puts("[1] - Задача 1. Написать функции, которые считывают матрицу смежности из файла и выводят ее на экран.");
+	puts("[2] - Задача 2. Написать рекурсивную функцию обхода графа в глубину.");
 	puts("[0] - Выход");
 	printf("Ваш выбор:> ");
 }
@@ -34,6 +36,8 @@ inline void ActionSelect(int select)
 	switch (select)
 	{
 	case 1: Task1Matrix();
+		break;
+	case 2: Task2Dfs();
 		break;
 	case 0: break;
 	default:
