@@ -1,8 +1,11 @@
 #pragma once
 #include <windows.h>
 #include <stdio.h>
+#include "Task1CountSort.h"
+#include "Task2QuickSort.h"
 
 void Task1SortCounter();
+void Task2QuickSort();
 
 /**
  * \brief Русификация
@@ -21,6 +24,7 @@ inline void PrintMenu()
 	puts("\n**************************************************************************************");
 	puts("Введите цифру дальнейшего действия (int):");
 	puts("[1] - Задача 1. Реализовать сортировку подсчетом.");
+	puts("[2] - Задача 2. Реализовать быструю сортировку.");
 	puts("[0] - Выход");
 	printf("Ваш выбор:> ");
 }
@@ -34,6 +38,8 @@ inline void ActionSelect(int select)
 	switch (select)
 	{
 	case 1: Task1SortCounter();
+		break;
+	case 2: Task2QuickSort();
 		break;
 	case 0: break;
 	default:

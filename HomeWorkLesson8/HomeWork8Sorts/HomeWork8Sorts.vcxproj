@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="HomeWork8Header.h" />
     <ClInclude Include="Task1CountSort.h" />
+    <ClInclude Include="Task2QuickSort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
