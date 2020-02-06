@@ -3,9 +3,11 @@
 #include <stdio.h>
 #include "Task1CountSort.h"
 #include "Task2QuickSort.h"
+#include "Task3MergeSort.h"
 
 void Task1SortCounter();
 void Task2QuickSort();
+void Task3MergeSort();
 
 /**
  * \brief Русификация
@@ -25,6 +27,7 @@ inline void PrintMenu()
 	puts("Введите цифру дальнейшего действия (int):");
 	puts("[1] - Задача 1. Реализовать сортировку подсчетом.");
 	puts("[2] - Задача 2. Реализовать быструю сортировку.");
+	puts("[3] - Задача 3. *Реализовать сортировку слиянием.");
 	puts("[0] - Выход");
 	printf("Ваш выбор:> ");
 }
@@ -40,6 +43,8 @@ inline void ActionSelect(int select)
 	case 1: Task1SortCounter();
 		break;
 	case 2: Task2QuickSort();
+		break;
+	case 3: Task3MergeSort();
 		break;
 	case 0: break;
 	default:
