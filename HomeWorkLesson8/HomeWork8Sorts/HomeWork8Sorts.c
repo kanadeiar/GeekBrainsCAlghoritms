@@ -1,6 +1,8 @@
 #include <stdio.h>
-#include "HomeWork8Header.h"
 #include <time.h>
+#include "HomeWork8Header.h"
+#include "Task1CountSort.h"
+
 
 /**
  * Курс "Алгоритмы и структуры данных. Базовый курс."
@@ -16,7 +18,7 @@ int main(int argc, char * args[])
 	int userSelect = 0;
 	do
 	{
-		PrintHeader();
+		PrintMenu();
 		scanf_s(" %d", &userSelect);
 		getchar();
 		ActionSelect(userSelect);
@@ -32,13 +34,19 @@ void Task1SortCounter()
 	puts("\n**************************************************************************************");
 	puts("1. Реализовать сортировку подсчетом.");
 	/////////////////////////////////////////////////////////////
-	int arr[30];
+	int arr[SIZE_ARR];
 	srand(time(NULL));
-	for (int i = 0; i<30; i++)
-		arr[i] = rand() % 10;
-	int resultArr[10];
-	
-	
+	for (int i = 0; i<SIZE_ARR; i++)
+		arr[i] = rand() % 10 + 1;
+	puts("Массив до сортировки подсчетом:");
+	for (int i = 0; i<SIZE_ARR; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+	CountSort(arr);
+	puts("Массив после сортировки подсчетом:");
+	for (int i = 0; i<SIZE_ARR; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
 	/////////////////////////////////////////////////////////////
 	getchar();
 }
