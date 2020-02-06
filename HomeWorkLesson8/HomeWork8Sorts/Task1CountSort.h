@@ -1,6 +1,10 @@
 #pragma once
 #define SIZE_ARR 30
 
+/**
+ * \brief Сортировка подсчетом
+ * \param arr Сортируемый массив
+ */
 void CountSort(int arr[SIZE_ARR])
 {
 	int countArr[SIZE_ARR] = {0};
