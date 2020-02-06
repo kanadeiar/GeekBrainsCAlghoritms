@@ -148,6 +148,7 @@
     <ClInclude Include="Task1CountSort.h" />
     <ClInclude Include="Task2QuickSort.h" />
     <ClInclude Include="Task3MergeSort.h" />
+    <ClInclude Include="Task4AnalyzSorts.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
